@@ -1,0 +1,20 @@
+/* fh-critical-css (26 Oct 2026): above-the-fold subset of /assets/css/tnb-worldclass-v3.css for the homepage. Auto-generated - rebuild if tnb-worldclass-v3.css changes. */
+:root{
+ --wc-navy:#081b31;--wc-navy2:#0d2b4a;--wc-red:#d41f3f;--wc-red2:#b81835;--wc-gold:#d6a62f;
+ --wc-ink:#132238;--wc-muted:#67788e;--wc-line:#e1e7ee;--wc-soft:#f6f8fb;--wc-green:#129365;
+ --wc-shadow:0 18px 55px rgba(8,27,49,.09);--wc-radius:18px;--wc-container:1320px;
+}
+html{scroll-behavior:smooth}body.tnb-modern{font-family:"Inter","Segoe UI",Arial,sans-serif!important;color:var(--wc-ink)!important;background:#fff!important;font-size:15px!important;line-height:1.5;-webkit-font-smoothing:antialiased}
+body.tnb-modern h1,body.tnb-modern h2,body.tnb-modern h3{font-family:"Inter","Segoe UI",Arial,sans-serif!important;letter-spacing:-.025em!important;font-weight:700!important}
+body.tnb-modern .container{max-width:var(--wc-container)!important}
+a{text-underline-offset:3px}
+.tnb-pax-popover,.fh-pax-popover{display:none;position:absolute;left:0;top:calc(100% + 7px);width:310px;background:#fff;border:1px solid var(--wc-line);border-radius:16px;box-shadow:0 22px 55px rgba(8,27,49,.17);z-index:200;padding:12px}.tnb-pax-row{display:flex;justify-content:space-between;align-items:center;padding:12px 6px;border-bottom:1px solid #edf1f5}.tnb-pax-row:last-of-type{border-bottom:0}.tnb-counter{display:flex;align-items:center;gap:10px}.tnb-counter button{width:30px;height:30px;border-radius:50%;border:1px solid #d9e1e9;background:#fff;color:var(--wc-navy);font-weight:800}.tnb-pax-done{width:100%;border:0;border-radius:9px;background:var(--wc-navy);color:#fff;padding:9px;margin-top:9px;font-weight:700}.tnb-fare-timer{font-family:inherit!important}
+@media(max-width:575px){body.tnb-modern{font-size:14px!important}}
+.flatpickr-calendar{font-family:Inter,"Segoe UI",sans-serif!important;border:1px solid #dfe7ef!important;border-radius:18px!important;box-shadow:0 25px 60px rgba(7,31,55,.18)!important;padding:8px!important;overflow:hidden}.flatpickr-months{padding:6px 0 8px}.flatpickr-current-month{font-size:14px!important;font-weight:800!important}.flatpickr-weekday{font-size:10px!important;color:#8090a3!important}.flatpickr-day{border-radius:10px!important;font-weight:650!important}.flatpickr-day:hover{background:#f5e9ed!important;border-color:#f5e9ed!important}
+#tnbSearchOverlay{overflow-y:auto!important;overflow-x:hidden!important;padding:28px 20px!important}
+@media(max-width:820px){
+  #tnbSearchOverlay{padding:20px 14px!important}
+}
+@media(max-width:575px){
+  #tnbSearchOverlay{padding:16px 10px!important;align-items:flex-start!important}
+}

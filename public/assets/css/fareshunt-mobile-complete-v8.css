@@ -1,0 +1,77 @@
+/*
+ * FaresHunt Production Premium V8 — customer mobile hardening layer
+ * UI-only. Loaded after legacy styles to normalize touch targets, overflow,
+ * listing, booking and confirmation behaviour without changing API/business logic.
+ */
+html{max-width:100%;overflow-x:hidden}
+body{max-width:100%;overflow-x:hidden}
+img,svg,video,iframe{max-width:100%}
+input,select,textarea,button{max-width:100%}
+
+@media(max-width:760px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{width:100%;min-width:0}
+  .container,.container-fluid{max-width:100%!important}
+  input:not([type="checkbox"]):not([type="radio"]),select,textarea{font-size:16px!important}
+  button,.btn,a.btn{touch-action:manipulation}
+
+  /* Shared phone-safe content widths */
+  main,section,.row,[class*="col-"]{min-width:0}
+  .row{--bs-gutter-x:14px}
+  .card{max-width:100%}
+
+  /* Search/listing: mobile actions stay easy to reach and never overflow. */
+  .fhx-wrap,.tnb-listing-results-section{width:100%;max-width:100%;overflow-x:hidden}
+  .fhx-wrap>.container,.tnb-listing-results-section>.container{padding-left:10px!important;padding-right:10px!important}
+  .fhx-field,.fhx-date,.fhx-travellers,.fhx-cabin{min-width:0!important}
+  .fhx-field input,.fhx-date input{width:100%!important;min-width:0!important}
+  .tnb-mobile-search-toggle,.tnb-mobile-results-actions button{min-height:46px!important}
+  .tnb-mobile-results-actions{position:sticky;top:64px;z-index:35;background:rgba(245,248,252,.96);backdrop-filter:blur(8px);padding:6px 0}
+  .tnb-filter-column{max-width:100%!important}
+  .tnb-results-layout.tnb-mobile-filters-open .tnb-filter-column{display:block!important}
+  .tnb-results-layout .filter-searchBar{max-width:100%!important;overflow:hidden!important}
+  .tnb-results-layout .filter-searchBar-body{max-height:65vh!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch}
+  .tnb-flight-results-column,.result-step,.flights-list-item{max-width:100%!important;min-width:0!important}
+  .flights-list-item{overflow:hidden!important}
+  .tnb-mobile-flight-summary{max-width:100%!important}
+  .tnb-mobile-leg-times>*{min-width:0!important}
+  .tnb-mobile-leg-times b,.tnb-mobile-leg-times small{overflow-wrap:anywhere}
+  .tnb-mobile-price-wrap .btn,.tnb-mobile-price-wrap button,.tnb-select-btn{min-height:48px!important}
+  .tnb-inline-details,.accordion-body{max-width:100%!important;overflow-x:hidden!important}
+  .airLines-fullsegment{max-width:100%!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch}
+
+  /* Checkout / passenger / payment */
+  body.tnb-checkout-active{overflow-x:hidden!important}
+  .fh-checkout,.fh-checkout>.container,.fh-layout,.fh-main,.fh-side{max-width:100%!important;min-width:0!important}
+  .fh-checkout>.container{padding-left:10px!important;padding-right:10px!important}
+  .fh-layout{display:block!important}
+  .fh-main,.fh-side{width:100%!important}
+  .fh-step-panel,.fh-person-card,.fh-payment-card,.tnb-payment-card,.tnb-billing-card{max-width:100%!important;overflow:hidden!important}
+  .fh-person-card .row,.tnb-billing-card .row{margin-left:-5px!important;margin-right:-5px!important}
+  .fh-person-card [class*="col-"],.tnb-billing-card [class*="col-"]{padding-left:5px!important;padding-right:5px!important}
+  .fh-person-card input,.fh-person-card select,.tnb-billing-card input,.tnb-billing-card select,.fh-payment-card input,.fh-payment-card select{width:100%!important;min-width:0!important;min-height:48px!important}
+  .fh-payment-layout{min-width:0!important}
+  .fh-card-preview{max-width:100%!important}
+  #creditcard_no{padding-right:92px!important}
+  .tnb-card-brand-badge{right:8px!important;min-width:66px!important;padding:0 7px!important}
+  .fh-step-actions{width:100%!important}
+  .fh-step-actions .btn,.fh-step-actions button,#submitBtn{min-height:50px!important}
+  .fh-side{position:static!important;margin-top:12px!important}
+
+  /* Success/confirmation pages: tables scroll rather than force viewport width. */
+  .table-responsive{width:100%!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch}
+  table{max-width:100%}
+}
+
+@media(max-width:430px){
+  .fhx-wrap>.container,.tnb-listing-results-section>.container,.fh-checkout>.container{padding-left:8px!important;padding-right:8px!important}
+  .tnb-mobile-leg-times{grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr)!important}
+  .fh-progress{max-width:100%!important}
+  .fh-payment-card .form-group.row .col-7>.row.g-2{grid-template-columns:1fr 1fr 1fr!important}
+}
+
+@media(max-width:350px){
+  .tnb-mobile-results-actions{grid-template-columns:1fr!important}
+  .fh-payment-card .form-group.row .col-7>.row.g-2{grid-template-columns:1fr 1fr!important}
+  .fh-payment-card .form-group.row .col-7>.row.g-2>*:last-child{grid-column:1/-1}
+}

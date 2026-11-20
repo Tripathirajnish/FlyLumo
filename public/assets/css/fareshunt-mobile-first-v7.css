@@ -1,0 +1,559 @@
+/*
+ * FaresHunt Mobile-First V7
+ * Customer website mobile UX pass inspired by strong OTA mobile patterns.
+ * CSS-only: search inputs, routes, APIs, fare rules and booking logic remain untouched.
+ */
+
+@media (max-width: 760px) {
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Keep the first mobile screen focused on flight search. */
+  .fh-offer-rotator,
+  .fh-reference-trust {
+    display: none !important;
+  }
+
+  .fh-reference-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100100 !important;
+    background: rgba(255,255,255,.98) !important;
+    border-bottom: 1px solid #e7edf5 !important;
+    box-shadow: 0 5px 18px rgba(9,31,58,.06) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  .fh-reference-header-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 64px !important;
+    height: 64px !important;
+    padding: 7px 12px !important;
+    gap: 8px !important;
+  }
+
+  .fh-reference-brand {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .fh-reference-brand img {
+    display: block !important;
+    width: min(158px, 43vw) !important;
+    max-width: 158px !important;
+    max-height: 48px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+  }
+
+  .fh-reference-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .fh-reference-actions > .fh-reference-bookings {
+    display: none !important;
+  }
+
+  .fh-reference-actions > .fh-reference-call {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    min-height: 42px !important;
+    padding: 0 10px !important;
+    border: 1px solid #d9e3ee !important;
+    border-radius: 12px !important;
+    background: #fff !important;
+    color: #0b315a !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+  }
+
+  .fh-reference-actions > .fh-reference-call i {
+    color: #d51c3f !important;
+    font-size: 13px !important;
+  }
+
+  .fh-reference-mobile-toggle {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    border-radius: 12px !important;
+  }
+
+  .fh-reference-mobile-toggle::before { top: 12px !important; }
+  .fh-reference-mobile-toggle .fh-menu-line { top: 19px !important; }
+  .fh-reference-mobile-toggle::after { top: 26px !important; }
+
+  .fh-reference-mobile-toggle[aria-expanded="true"]::before,
+  .fh-reference-mobile-toggle[aria-expanded="true"]::after {
+    top: 20px !important;
+  }
+
+  .fh-reference-mobile-menu {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 64px !important;
+    max-height: calc(100dvh - 64px) !important;
+    overflow-y: auto !important;
+    padding: 10px 12px 18px !important;
+    border-top: 0 !important;
+    box-shadow: 0 18px 34px rgba(7,27,52,.13) !important;
+  }
+
+  .fh-reference-mobile-menu a {
+    min-height: 48px !important;
+    padding: 0 12px !important;
+    border-radius: 11px !important;
+    font-size: 14px !important;
+  }
+
+  /* Homepage hero: compact enough that the search begins immediately. */
+  .fh-home .fh-hero {
+    min-height: auto !important;
+    padding: 18px 0 30px !important;
+    background:
+      radial-gradient(circle at 15% 18%, rgba(84,113,165,.18), transparent 34%),
+      linear-gradient(125deg,#152b4c 0%,#102642 52%,#07182f 100%) !important;
+  }
+
+  .fh-home .fh-hero-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 10px !important;
+  }
+
+  .fh-home .fh-hero-copy {
+    margin: 0 auto 13px !important;
+    text-align: center !important;
+  }
+
+  .fh-home .fh-pill {
+    min-height: 28px !important;
+    padding: 5px 10px !important;
+    gap: 7px !important;
+    font-size: 10px !important;
+  }
+
+  .fh-home .fh-hero-copy h1 {
+    max-width: 355px !important;
+    margin: 11px auto 0 !important;
+    font-size: clamp(28px, 8.9vw, 38px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -.035em !important;
+    white-space: normal !important;
+    text-wrap: balance !important;
+  }
+
+  .fh-home .fh-hero-copy p {
+    max-width: 345px !important;
+    margin: 9px auto 0 !important;
+    font-size: 12.5px !important;
+    line-height: 1.42 !important;
+  }
+
+  /* Search card: thumb-friendly, compact, single clear task flow. */
+  .fh-home .fh-search-shell.fh-ref-search-shell {
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    padding: 10px !important;
+    border: 0 !important;
+    border-radius: 18px !important;
+    box-shadow: 0 16px 38px rgba(3,15,33,.23) !important;
+  }
+
+  .fh-home .fh-search-head,
+  .fh-home .fh-ref-search-head {
+    margin: 0 0 9px !important;
+  }
+
+  .fh-home .fh-trip-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+    width: 100% !important;
+    gap: 4px !important;
+    padding: 3px !important;
+    overflow: visible !important;
+    border-radius: 13px !important;
+  }
+
+  .fh-home .fh-trip-tab {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 40px !important;
+    padding: 0 4px !important;
+    border-radius: 10px !important;
+    font-size: 11.5px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+
+  .fh-home #fhStandardSearch .fh-ref-search-grid-top {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 7px !important;
+    width: 100% !important;
+  }
+
+  .fh-home #fhStandardSearch .fh-ref-search-grid-top > label:nth-child(1) { order: 1 !important; }
+  .fh-home #fhStandardSearch .fh-ref-search-grid-top > #fhSwapAirports { order: 2 !important; }
+  .fh-home #fhStandardSearch .fh-ref-search-grid-top > label:nth-child(3) { order: 3 !important; }
+  .fh-home #fhStandardSearch .fh-ref-search-grid-top > .fh-ref-dates { order: 4 !important; }
+
+  .fh-home .fh-search-field > span {
+    margin: 0 0 4px !important;
+    font-size: 9px !important;
+    line-height: 1 !important;
+    letter-spacing: .07em !important;
+  }
+
+  .fh-home .fh-input,
+  .fh-home .fh-pax-button {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 50px !important;
+    border-radius: 13px !important;
+  }
+
+  .fh-home .fh-input input,
+  .fh-home .fh-input select,
+  .fh-home .fh-pax-button {
+    font-size: 16px !important;
+  }
+
+  .fh-home .fh-input > i {
+    flex: 0 0 auto !important;
+  }
+
+  /* Swap sits between From and To, but consumes almost no vertical space. */
+  .fh-home #fhSwapAirports {
+    order: 2 !important;
+    align-self: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    margin: -5px 0 !important;
+    border-radius: 50% !important;
+    transform: rotate(90deg) !important;
+    z-index: 3 !important;
+  }
+
+  .fh-home #fhSwapAirports:hover {
+    transform: rotate(90deg) !important;
+  }
+
+  /* Departure + Return are side-by-side on normal phones, like leading OTA mobile UIs. */
+  .fh-home .fh-ref-dates .fh-ref-date-pair {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
+    gap: 7px !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .fh-home .fh-ref-dates .fh-ref-date-pair > label.fh-input,
+  .fh-home .fh-ref-dates .fh-return-field {
+    display: flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 50px !important;
+  }
+
+  .fh-home .fh-ref-dates .fh-date-dash {
+    display: none !important;
+  }
+
+  .fh-home .fh-ref-dates .fh-return-field:has(#return_date:disabled) {
+    display: none !important;
+  }
+
+  /* One-way should allow the departure control to occupy the whole date row. */
+  .fh-home .fh-ref-date-pair:has(#return_date:disabled) {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Passenger + cabin compact on mainstream phone widths. */
+  .fh-home .fh-ref-search-grid-bottom {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
+    gap: 7px !important;
+    width: 100% !important;
+    margin-top: 7px !important;
+  }
+
+  .fh-home .fh-ref-search-grid-bottom > .fh-pax-field,
+  .fh-home .fh-ref-search-grid-bottom > label.fh-search-field {
+    min-width: 0 !important;
+  }
+
+  .fh-home .fh-pax-button {
+    padding-left: 10px !important;
+    padding-right: 9px !important;
+  }
+
+  .fh-home .fh-pax-button > span {
+    min-width: 0 !important;
+  }
+
+  .fh-home .fh-pax-button strong,
+  .fh-home .fh-pax-button small,
+  .fh-home .fh-cabin-stack small {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .fh-home .fh-ref-cabin {
+    padding-right: 8px !important;
+  }
+
+  .fh-home .fh-cabin-stack small {
+    display: none !important;
+  }
+
+  .fh-home .fh-search-submit {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 52px !important;
+    margin-top: 1px !important;
+    border-radius: 13px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+  }
+
+  /* Passenger selector behaves as a bottom sheet, with safe-area support. */
+  .fh-home .fh-pax-popover,
+  .fh-home .tnb-pax-popover {
+    position: fixed !important;
+    left: 8px !important;
+    right: 8px !important;
+    top: auto !important;
+    bottom: max(8px, env(safe-area-inset-bottom)) !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: min(76dvh, 570px) !important;
+    overflow-y: auto !important;
+    border-radius: 18px !important;
+    z-index: 100200 !important;
+  }
+
+  .fh-home .tnb-pax-row {
+    min-height: 58px !important;
+  }
+
+  .fh-home .tnb-counter button,
+  .fh-home .tnb-pax-done {
+    min-height: 44px !important;
+  }
+
+  /* Flatpickr: bottom sheet rather than desktop popup. */
+  body > .flatpickr-calendar {
+    position: fixed !important;
+    left: 8px !important;
+    right: 8px !important;
+    top: auto !important;
+    bottom: max(8px, env(safe-area-inset-bottom)) !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: calc(100dvh - 82px) !important;
+    margin: 0 !important;
+    transform: none !important;
+    border-radius: 20px !important;
+    overflow-y: auto !important;
+    z-index: 100300 !important;
+    box-shadow: 0 24px 70px rgba(5,20,45,.34) !important;
+  }
+
+  body > .flatpickr-calendar .flatpickr-days,
+  body > .flatpickr-calendar .dayContainer {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body > .flatpickr-calendar .flatpickr-day {
+    max-width: none !important;
+    flex-basis: 14.2857% !important;
+  }
+
+  /* Airport suggestions are readable and never leave the viewport. */
+  .ui-autocomplete {
+    position: fixed !important;
+    left: 8px !important;
+    right: 8px !important;
+    top: 72px !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: min(62dvh, 480px) !important;
+    margin: 0 !important;
+    border-radius: 17px !important;
+    z-index: 100250 !important;
+  }
+
+  .fh-airport-result {
+    grid-template-columns: 38px minmax(0,1fr) auto !important;
+    min-height: 60px !important;
+    gap: 8px !important;
+    padding: 7px 8px !important;
+  }
+
+  .fh-airport-result-icon {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .fh-airport-result-code { font-size: 15px !important; }
+  .fh-airport-result-city { font-size: 12px !important; }
+  .fh-airport-result-name { font-size: 10px !important; }
+  .fh-airport-result-country { max-width: 65px !important; }
+
+  /* Trust information remains present, but compact and below the primary task. */
+  .fh-home .fh-hero-trust {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 6px 12px !important;
+    margin-top: 13px !important;
+    font-size: 10px !important;
+  }
+
+  .fh-home .fh-hero-trust span {
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    justify-content: center !important;
+  }
+
+  .fh-home .fh-hero-trust span:nth-child(n+4) {
+    display: none !important;
+  }
+
+  .fh-home .fh-hero-wave {
+    height: 24px !important;
+  }
+
+  /* Multi-city remains fully usable on phones. */
+  .fh-home .fh-multicity {
+    width: 100% !important;
+    padding-top: 4px !important;
+  }
+
+  .fh-home .fh-multi-leg {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 7px !important;
+    width: 100% !important;
+    padding: 11px 9px !important;
+    border-radius: 14px !important;
+  }
+
+  .fh-home .fh-multi-remove {
+    position: absolute !important;
+    top: 7px !important;
+    right: 7px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .fh-home .fh-multicity-add {
+    width: 100% !important;
+    min-height: 46px !important;
+  }
+
+  /* Below-the-fold homepage sections use full available mobile width safely. */
+  .fh-home > .fh-section > .container,
+  .fh-home > section.fh-section > .container,
+  .fh-home .fh-featured-ref > .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .fh-home .fh-featured-ref {
+    padding-top: 24px !important;
+  }
+
+  .fh-home .fh-featured-ref .fh-deal-grid,
+  .fh-home .fh-airport-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .fh-home .fh-featured-ref .fh-featured-card {
+    border-radius: 20px !important;
+  }
+
+  .fh-home .fh-featured-ref .fh-deal-photo {
+    height: 190px !important;
+    min-height: 190px !important;
+    border-radius: 19px 19px 0 0 !important;
+  }
+}
+
+/* Very narrow devices: avoid cramped two-column controls. */
+@media (max-width: 359px) {
+  .fh-reference-brand img {
+    width: min(140px, 42vw) !important;
+  }
+
+  .fh-reference-actions > .fh-reference-call {
+    width: 42px !important;
+    padding: 0 !important;
+  }
+
+  .fh-reference-actions > .fh-reference-call span {
+    display: none !important;
+  }
+
+  .fh-home .fh-trip-tab {
+    font-size: 10.5px !important;
+  }
+
+  .fh-home .fh-ref-dates .fh-ref-date-pair,
+  .fh-home .fh-ref-search-grid-bottom {
+    grid-template-columns: 1fr !important;
+  }
+
+  .fh-home .fh-search-submit {
+    grid-column: auto !important;
+  }
+}
+
+/* 360–430px is the primary phone target; preserve compact two-column dates. */
+@media (min-width: 360px) and (max-width: 430px) {
+  .fh-home .fh-hero-copy h1 {
+    font-size: clamp(29px, 8.7vw, 36px) !important;
+  }
+}

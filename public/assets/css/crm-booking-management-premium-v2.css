@@ -1,0 +1,153 @@
+
+/* TravelCRM Booking Management Premium V2
+   Visual-only enhancement layered over Booking Management V1. */
+
+/* Global readability within booking module */
+.bm-head .title,.bdo-page h1,.bdo-page h2,.bdo-page h3,.bdo-page h4{font-family:Inter,"Segoe UI",Arial,sans-serif}
+.bm-head .title{font-size:30px!important;font-weight:700!important;letter-spacing:-.035em!important}
+.bm-head .sub{font-size:13px!important;color:#718198!important}
+.bm-eyebrow,.bdo-kicker{font-size:9px!important}
+.bm-toolbar{padding:15px!important;border-radius:16px!important;box-shadow:0 10px 30px rgba(20,43,75,.045)}
+.bm-filter-form .form-select,.bm-filter-form .form-control,.bm-search input{height:43px!important;font-size:12px!important}
+.bm-filter-form .btn{min-height:43px!important;font-size:11px!important}
+.bm-search{min-width:340px}
+.bm-table th{font-size:10px!important;padding:12px 10px!important;color:#53657c!important}
+.bm-table td{font-size:11px!important;padding:12px 10px!important;line-height:1.35!important}
+.bm-table td small{font-size:9px!important}
+.bm-pnr{font-size:12px!important}
+.bm-state,.bm-table .soft,.bm-table .crm-status-badge{font-size:9px!important;padding:6px 9px!important}
+.bm-actions a{width:34px!important;height:34px!important;font-size:12px!important}
+.bm-pagination{font-size:10px!important;padding:15px 18px!important}
+.bm-pagination nav a,.bm-pagination nav span{font-size:10px!important;padding:9px 11px!important}
+
+/* Premium detail header */
+.bdo-page{--ink:#122a47;--muted:#71839a;--line:#dde6f0;--blue:#2459df;--navy:#102a49}
+.bdo-topbar{padding:20px 22px!important;margin-bottom:14px!important;border-radius:18px;background:linear-gradient(135deg,#fff 0%,#f6f9ff 62%,#eef4ff 100%);border:1px solid #dce6f3;box-shadow:0 14px 38px rgba(21,50,88,.07)}
+.bdo-title-row h1{font-size:34px!important;font-weight:750!important;color:var(--ink)!important}
+.bdo-title-row .crm-status-badge{font-size:11px!important;padding:7px 11px!important}
+.bdo-topbar p{font-size:13px!important;color:#647890!important}
+.bdo-quick-actions .btn{min-height:40px!important;padding:0 13px!important;font-size:11px!important;border-radius:10px!important}
+
+/* Lifecycle */
+.bdo-stagebar{border-radius:16px!important;box-shadow:0 8px 25px rgba(20,43,75,.04)!important}
+.bdo-stagebar>div{padding:15px 13px!important}
+.bdo-stagebar span{width:31px!important;height:31px!important;font-size:10px!important}
+.bdo-stagebar b{font-size:11px!important}
+.bdo-stagebar .done{background:linear-gradient(180deg,#f4fcf7,#edf9f2)!important}
+.bdo-stagebar .active{background:linear-gradient(180deg,#f2f7ff,#e8f1ff)!important}
+
+/* Tabs */
+.bdo-tabs{padding:7px!important;border-radius:13px!important;box-shadow:0 8px 22px rgba(20,43,75,.035)}
+.bdo-tabs a{font-size:11px!important;padding:10px 13px!important}
+
+/* Action center */
+.bdo-action-center{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:14px 16px;margin-bottom:12px;border-radius:16px;background:linear-gradient(100deg,#102a49,#163b67);box-shadow:0 14px 36px rgba(16,42,73,.16)}
+.bdo-action-center-title{display:flex;align-items:center;gap:11px;color:#fff;min-width:180px}
+.bdo-action-center-title>span{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.12);color:#ffd45a;font-size:15px}
+.bdo-action-center-title small{display:block;color:#8fb0d3;font-size:8px;text-transform:uppercase;font-weight:850;letter-spacing:.08em}
+.bdo-action-center-title strong{display:block;font-size:14px;margin-top:2px}
+.bdo-action-center-links{display:flex;gap:7px;overflow:auto}
+.bdo-action-center-links a{display:flex;align-items:center;gap:7px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.08);color:#e9f2fb;text-decoration:none;white-space:nowrap;font-size:10px;border:1px solid rgba(255,255,255,.09)}
+.bdo-action-center-links a:hover{background:#fff;color:#163b67}
+.bdo-action-center-links i{font-size:11px}
+
+/* Summary cards: colorful and readable */
+.bdo-summary-grid{gap:10px!important}
+.bdo-summary-card{position:relative;overflow:hidden;min-height:114px!important;padding:16px!important;border-radius:16px!important;border:0!important;box-shadow:0 10px 28px rgba(20,43,75,.07)!important}
+.bdo-summary-card:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-30px;top:-35px;background:rgba(255,255,255,.38)}
+.bdo-summary-card .summary-icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;margin-bottom:13px;background:rgba(255,255,255,.7);font-size:13px}
+.bdo-summary-card small{font-size:9px!important;font-weight:850!important;letter-spacing:.065em!important}
+.bdo-summary-card strong{font-size:18px!important;margin-top:5px!important;position:relative;z-index:2}
+.summary-purple{background:linear-gradient(135deg,#f0eaff,#faf8ff)!important;color:#6439ad!important}.summary-purple strong{color:#3e236f!important}
+.summary-blue{background:linear-gradient(135deg,#e7f0ff,#f7faff)!important;color:#2459df!important}.summary-blue strong{color:#173d91!important}
+.summary-amber{background:linear-gradient(135deg,#fff2d8,#fffaf0)!important;color:#b66c05!important}.summary-amber strong{color:#7f4b04!important}
+.summary-green{background:linear-gradient(135deg,#e6f8ee,#f7fcf9)!important;color:#16814f!important}.summary-green strong{color:#0f603a!important}
+.summary-cyan{background:linear-gradient(135deg,#e5f8fb,#f6fdfe)!important;color:#0b8194!important}.summary-cyan strong{color:#075c6b!important}
+.summary-indigo{background:linear-gradient(135deg,#eaefff,#f8f9ff)!important;color:#4f5cc7!important}.summary-indigo strong{color:#333f9c!important}
+
+/* Main cards */
+.bdo-card{border-radius:17px!important;box-shadow:0 10px 30px rgba(19,42,74,.05)!important;border-color:#dce5ef!important}
+.bdo-card>header{padding:16px 18px!important;background:linear-gradient(180deg,#fff,#fbfcfe)!important}
+.bdo-card>header h3{font-size:16px!important;font-weight:750!important;color:var(--ink)!important}
+.bdo-body{padding:17px!important}
+.bdo-info-grid{gap:10px!important}
+.bdo-info-grid>div,.bdo-passenger-grid>div{padding:13px!important;border-radius:12px!important;background:#f8fafc!important}
+.bdo-info-grid small,.bdo-passenger-grid small{font-size:8px!important}
+.bdo-info-grid strong,.bdo-passenger-grid b{font-size:12px!important;margin-top:5px!important}
+
+/* Premium passenger panel */
+.premium-pax{display:grid!important;grid-template-columns:76px 1fr!important;gap:16px!important;padding:17px!important;border:1px solid #dce5ef!important;border-radius:16px!important;background:linear-gradient(135deg,#fff 0%,#fbfcff 100%)!important;box-shadow:0 8px 25px rgba(20,43,75,.045)}
+.premium-pax+.premium-pax{margin-top:11px!important}
+.bdo-passenger-avatar{width:70px;height:82px;border-radius:17px;background:linear-gradient(145deg,#2459df,#6b5de7);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 10px 24px rgba(36,89,223,.2)}
+.bdo-passenger-avatar>span{font-size:22px;font-weight:800;letter-spacing:.02em}
+.bdo-passenger-avatar>small{font-size:8px;color:#dbe5ff;margin-top:5px;font-weight:800}
+.premium-pax-content{min-width:0}
+.premium-pax-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}
+.premium-pax-head small{display:block;color:#7c8ca0;font-size:8px;text-transform:uppercase;font-weight:850;letter-spacing:.07em}
+.premium-pax-head h4{font-size:19px!important;color:#132e50!important;margin:3px 0 0!important;font-weight:760!important}
+.premium-pax-type{padding:7px 10px;border-radius:999px;background:#eef4ff;color:#2459df;font-size:9px;font-weight:850}
+.premium-name-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:9px}
+.premium-name-grid>div{padding:13px;border-radius:12px;border:1px solid #dce5ef}
+.premium-name-grid .name-first{background:#eff5ff;border-color:#d6e4ff}
+.premium-name-grid .name-middle{background:#f7f2ff;border-color:#e7dafb}
+.premium-name-grid .name-last{background:#ecfaf3;border-color:#d6f1e2}
+.premium-name-grid small{display:block;font-size:8px;color:#728398;text-transform:uppercase;font-weight:850;letter-spacing:.06em}
+.premium-name-grid strong{display:block;font-size:14px;color:#17304f;margin-top:4px}
+.premium-pax-grid{grid-template-columns:repeat(3,1fr)!important}
+
+/* Flight itinerary bigger and richer */
+.bdo-journey-label{font-size:10px!important;margin:7px 0 9px!important}
+.bdo-flight-card{border-radius:16px!important;margin-bottom:11px!important;box-shadow:0 7px 22px rgba(20,43,75,.035)}
+.bdo-flight-main{padding:18px!important}
+.bdo-flight-main>div>strong{font-size:31px!important;font-weight:760!important}
+.bdo-flight-main>div>span{font-size:10px!important}
+.bdo-flight-main>div>small{font-size:10px!important}
+.bdo-flight-mid>span{font-size:10px!important}
+.bdo-flight-mid>i{font-size:16px!important}
+.bdo-flight-footer{padding:10px 14px!important;font-size:9px!important}
+
+/* Fare and payment */
+.bdo-fare-row{font-size:11px!important;padding:11px 0!important}
+.bdo-fare-row.total{font-size:15px!important}
+.bdo-payment-card{padding:19px!important;border-radius:15px!important;box-shadow:0 12px 28px rgba(12,32,58,.18)}
+.bdo-card-digits{font-size:18px!important}
+.bdo-payment-card>span{font-size:11px!important}
+.bdo-payment-card>small{font-size:8px!important}
+
+/* Operations sidebar */
+.bdo-sticky>header{background:linear-gradient(135deg,#102a49,#173e6c)!important}
+.bdo-sticky>header .bdo-kicker{color:#8fb2d5!important}
+.bdo-sticky>header h3{color:#fff!important;font-size:17px!important}
+.bdo-ops-form label>span,.bdo-status-form label>span,.bdo-card label>span{font-size:8px!important}
+.bdo-ops-form .form-control,.bdo-ops-form .form-select,.bdo-status-form .form-control,.bdo-status-form .form-select{font-size:11px!important;min-height:41px!important}
+.bdo-ops-form textarea.form-control{min-height:88px!important}
+.bdo-ops-form .btn,.bdo-status-form .btn{min-height:41px!important;font-size:10px!important}
+
+/* Activity timeline */
+.bdo-remark-form .form-control{min-height:42px!important;font-size:11px!important}
+.bdo-remark-form .btn{font-size:10px!important}
+.bdo-timeline>div{grid-template-columns:38px 1fr!important;padding:11px 0!important}
+.bdo-timeline>div>span{width:36px!important;height:36px!important;border-radius:10px!important;background:#eef4ff!important;color:#2459df!important}
+.bdo-timeline p b{font-size:11px!important}
+.bdo-timeline p small{font-size:9px!important;margin-top:4px!important}
+
+/* Side communication cards */
+.bdo-side-actions a,.bdo-side-actions button{padding:11px!important;font-size:10px!important}
+.bdo-doc-count{font-size:10px!important;padding:10px 0!important}
+
+/* Responsive */
+@media(max-width:1200px){
+  .premium-name-grid{grid-template-columns:1fr 1fr 1fr}
+  .premium-pax-grid{grid-template-columns:1fr 1fr!important}
+  .bdo-action-center{align-items:flex-start;flex-direction:column}
+  .bdo-action-center-links{width:100%}
+}
+@media(max-width:760px){
+  .bm-table th{font-size:9px!important}.bm-table td{font-size:10px!important}
+  .bdo-title-row h1{font-size:28px!important}
+  .bdo-summary-card{min-height:100px!important}
+  .premium-pax{grid-template-columns:1fr!important}
+  .bdo-passenger-avatar{width:64px;height:64px}
+  .premium-name-grid,.premium-pax-grid{grid-template-columns:1fr!important}
+  .bdo-action-center-links{display:grid;grid-template-columns:1fr 1fr}
+}

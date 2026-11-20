@@ -1,0 +1,54 @@
+
+/* TravelCRM Booking Status System V1 */
+.crm-status-filter{width:min(260px,100%)!important}
+.crm-status-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  min-height:26px;padding:5px 9px;border-radius:999px;
+  font-size:9px;font-weight:800;line-height:1.15;
+  border:1px solid transparent;white-space:nowrap
+}
+.crm-status-dot{width:7px;height:7px;border-radius:50%;background:currentColor;flex:0 0 auto}
+.crm-status-badge.tone-blue{background:#eef5ff;color:#2459df;border-color:#dce8ff}
+.crm-status-badge.tone-amber{background:#fff6df;color:#b96b07;border-color:#f7e7ba}
+.crm-status-badge.tone-purple{background:#f5efff;color:#7337c9;border-color:#e7d9fb}
+.crm-status-badge.tone-green{background:#eaf8f0;color:#16814a;border-color:#d3efdf}
+.crm-status-badge.tone-cyan{background:#e9f9fb;color:#087f91;border-color:#d0eff3}
+.crm-status-badge.tone-red{background:#fff0f1;color:#cc3441;border-color:#f5d9dc}
+.crm-status-badge.tone-slate{background:#f1f4f8;color:#55657a;border-color:#e2e7ee}
+.crm-current-status{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin-top:7px;padding:10px 11px;border:1px solid #e8edf3;border-radius:11px;background:#fbfcfe
+}
+.crm-current-status>span{font-size:10px;color:#8290a4}
+.crm-status-form textarea{resize:vertical;min-height:64px!important}
+.crm-status-history{display:grid;gap:0}
+.crm-status-history-row{display:grid;grid-template-columns:20px 1fr;gap:9px;position:relative;padding-bottom:15px}
+.crm-status-history-row:last-child{padding-bottom:0}
+.crm-history-line{position:relative;display:flex;justify-content:center;padding-top:8px}
+.crm-history-line:after{content:"";position:absolute;top:19px;bottom:-7px;width:1px;background:#e2e8f0}
+.crm-status-history-row:last-child .crm-history-line:after{display:none}
+.crm-history-line .crm-status-dot{width:9px;height:9px;z-index:2;background:#64748b}
+.crm-history-line .crm-status-dot.tone-blue{background:#2459df}
+.crm-history-line .crm-status-dot.tone-amber{background:#d88612}
+.crm-history-line .crm-status-dot.tone-purple{background:#7c3aed}
+.crm-history-line .crm-status-dot.tone-green{background:#14a65a}
+.crm-history-line .crm-status-dot.tone-cyan{background:#0891b2}
+.crm-history-line .crm-status-dot.tone-red{background:#dc3c47}
+.crm-history-content{border:1px solid #e7ecf2;border-radius:11px;padding:10px 11px;background:#fff}
+.crm-history-content p{margin:8px 0 0;color:#56677c;font-size:10px;line-height:1.5}
+.crm-history-content small{display:block;color:#8794a6;margin-top:7px;font-size:9px}
+.crm-history-old{font-size:9px;color:#728198;text-decoration:line-through}
+.crm-status-action-card{overflow:visible!important}
+.crm-status-action-grid{
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;padding:14px
+}
+.crm-status-action{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  min-height:52px;padding:10px 11px;border:1px solid #e7ecf2;border-radius:12px;
+  text-decoration:none!important;background:#fff;transition:.18s ease
+}
+.crm-status-action:hover{border-color:#cfd9e6;box-shadow:0 8px 20px rgba(22,43,78,.06);transform:translateY(-1px)}
+.crm-status-action strong{font-size:17px;color:#0b1830}
+@media(max-width:1200px){.crm-status-action-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.crm-status-action-grid{grid-template-columns:1fr 1fr}.crm-status-filter{width:100%!important}}
+@media(max-width:480px){.crm-status-action-grid{grid-template-columns:1fr}}

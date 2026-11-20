@@ -1,0 +1,1 @@
+(function(){document.addEventListener('DOMContentLoaded',function(){if(/\/flight-listing\//.test(location.pathname)){document.body.classList.add('tnb-results-active');var b=document.querySelector('#form2 input[type="submit"]');if(b)b.value='Search';}})})();

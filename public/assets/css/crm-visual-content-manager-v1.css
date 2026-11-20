@@ -1,0 +1,26 @@
+
+/* Visual Website Content Manager V1 */
+.visual-content-layout{display:grid;grid-template-columns:235px minmax(0,1fr);gap:14px;align-items:start}
+.visual-content-nav{position:sticky;top:88px;overflow:hidden}
+.visual-content-nav nav{display:grid;padding:8px}
+.visual-content-nav nav a{padding:9px 10px;border-radius:9px;color:#53657b;text-decoration:none;font-size:10px;font-weight:700}
+.visual-content-nav nav a:hover{background:#eef4ff;color:#245bd8}
+.visual-content-main{min-width:0}
+.visual-content-section{margin-bottom:14px;scroll-margin-top:90px}
+.visual-content-fields{display:grid;grid-template-columns:1fr 1fr;gap:13px;padding:15px}
+.visual-content-field.wide{grid-column:1/-1}
+.visual-content-field>label:first-child{display:block;color:#35485f;font-size:9px;font-weight:800;margin-bottom:6px}
+.visual-content-field textarea{resize:vertical;min-height:95px}
+.visual-toggle{display:flex!important;align-items:center;gap:9px;margin:0!important}
+.visual-toggle>input{display:none}
+.visual-toggle>span{display:inline-block;width:40px;height:23px;border-radius:999px;background:#cbd4df;position:relative;transition:.2s}
+.visual-toggle>span:after{content:"";position:absolute;width:17px;height:17px;border-radius:50%;background:#fff;left:3px;top:3px;box-shadow:0 1px 5px rgba(0,0,0,.18);transition:.2s}
+.visual-toggle>input:checked+span{background:#219b67}
+.visual-toggle>input:checked+span:after{left:20px}
+.visual-toggle b{font-size:9px;color:#53657b}
+.visual-content-savebar{position:sticky;bottom:12px;z-index:30;margin-top:15px;padding:12px 14px;border:1px solid #dfe5ec;border-radius:14px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);box-shadow:0 15px 40px rgba(9,34,62,.1);display:flex;justify-content:space-between;align-items:center;gap:16px}
+.visual-content-savebar strong{display:block;font-size:11px;color:#162b46}
+.visual-content-savebar span{display:block;font-size:8px;color:#8290a3;margin-top:2px}
+.visual-content-savebar>div:last-child{display:flex;gap:8px}
+@media(max-width:950px){.visual-content-layout{grid-template-columns:1fr}.visual-content-nav{position:static}.visual-content-nav nav{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.visual-content-fields{grid-template-columns:1fr}.visual-content-field.wide{grid-column:auto}.visual-content-nav nav{grid-template-columns:1fr}.visual-content-savebar{align-items:stretch;flex-direction:column}.visual-content-savebar>div:last-child{display:grid;grid-template-columns:1fr 1fr}}

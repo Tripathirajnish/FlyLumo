@@ -1,0 +1,211 @@
+/*
+ * FaresHunt Production Premium V9 — final mobile/performance polish
+ * Presentation + perceived-performance only. Existing search/API/fare-rule/
+ * booking/payment contracts remain unchanged.
+ */
+
+/* Immediate paint: legacy spinner must never hold the page hostage. */
+#preloader{display:none!important;visibility:hidden!important;pointer-events:none!important}
+html,body{max-width:100%;overflow-x:hidden}
+*{box-sizing:border-box}
+img,svg,video,iframe{max-width:100%}
+
+/* Let the browser skip layout/paint work for deep below-the-fold homepage sections. */
+@supports (content-visibility:auto){
+  .fh-home > section:not(.fh-hero){content-visibility:auto;contain-intrinsic-size:1px 760px}
+}
+
+/* Lazy background placeholder: actual URL is applied by V9 JS near viewport. */
+.fh-lazy-bg{background-color:#eaf0f7;background-image:linear-gradient(135deg,#e8eef6,#f7f9fc)!important}
+.fh-lazy-bg.fh-bg-loaded{background-color:transparent}
+
+@media (max-width:760px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:70px}
+  body{width:100%;min-width:0;background:#f6f8fb}
+  input:not([type="checkbox"]):not([type="radio"]),select,textarea{font-size:16px!important}
+  button,a,input,select{touch-action:manipulation}
+  button,a{ -webkit-tap-highlight-color:transparent }
+
+  /* Header: predictable 64px mobile chrome, no wrapping or clipped logo. */
+  .fh-reference-header{position:sticky!important;top:0!important;z-index:100100!important;background:rgba(255,255,255,.985)!important}
+  .fh-reference-header-inner{height:64px!important;min-height:64px!important;padding:7px 10px!important;gap:7px!important}
+  .fh-reference-brand{min-width:0!important;flex:1 1 auto!important}
+  .fh-reference-brand img{width:min(154px,42vw)!important;max-width:154px!important;height:auto!important;max-height:46px!important;object-fit:contain!important;object-position:left center!important}
+  .fh-reference-actions{gap:6px!important;flex:0 0 auto!important}
+  .fh-reference-actions>.fh-reference-call{min-height:42px!important;padding:0 9px!important;border-radius:12px!important;font-size:10.5px!important}
+  .fh-reference-mobile-toggle{width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;border-radius:12px!important}
+  .fh-reference-mobile-menu{top:64px!important;max-height:calc(100dvh - 64px)!important;overscroll-behavior:contain}
+
+  /* Hero: search is the primary task; no overlap and no giant first-screen copy. */
+  .fh-home .fh-hero{min-height:auto!important;padding:14px 0 22px!important;overflow:visible!important;background:linear-gradient(135deg,#173358 0%,#0d2745 52%,#071a32 100%)!important}
+  .fh-home .fh-hero-inner{width:100%!important;max-width:560px!important;padding:0 9px!important}
+  .fh-home .fh-hero-copy{margin:0 auto 10px!important;text-align:left!important;padding:0 5px!important}
+  .fh-home .fh-pill{display:none!important}
+  .fh-home .fh-hero-copy h1{max-width:none!important;margin:0!important;font-size:clamp(27px,7.7vw,34px)!important;line-height:1.08!important;letter-spacing:-.035em!important;white-space:normal!important;text-wrap:balance!important}
+  .fh-home .fh-hero-copy p{max-width:none!important;margin:5px 0 0!important;font-size:12px!important;line-height:1.35!important;color:rgba(255,255,255,.78)!important}
+
+  /* Search card: mobile-native compact flow, not a compressed desktop panel. */
+  .fh-home .fh-search-shell.fh-ref-search-shell{width:100%!important;max-width:100%!important;margin:0 auto!important;padding:9px!important;border:0!important;border-radius:17px!important;background:#fff!important;box-shadow:0 14px 34px rgba(2,15,35,.24)!important;overflow:visible!important}
+  .fh-home .fh-search-head,.fh-home .fh-ref-search-head{margin:0 0 8px!important}
+  .fh-home .fh-trip-tabs{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;width:100%!important;gap:3px!important;padding:3px!important;border-radius:12px!important;overflow:visible!important}
+  .fh-home .fh-trip-tab{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;min-width:0!important;min-height:39px!important;padding:0 4px!important;border-radius:9px!important;font-size:11.5px!important;line-height:1!important;white-space:nowrap!important}
+  .fh-home .fh-trip-tab.active{font-size:11.5px!important;font-weight:700!important}
+
+  .fh-home #fhStandardSearch .fh-ref-search-grid-top{position:relative!important;display:flex!important;flex-direction:column!important;gap:5px!important;width:100%!important}
+  .fh-home #fhStandardSearch .fh-ref-search-grid-top>label:nth-child(1){order:1!important}
+  .fh-home #fhStandardSearch .fh-ref-search-grid-top>#fhSwapAirports{order:2!important}
+  .fh-home #fhStandardSearch .fh-ref-search-grid-top>label:nth-child(3){order:3!important}
+  .fh-home #fhStandardSearch .fh-ref-search-grid-top>.fh-ref-dates{order:4!important}
+  .fh-home .fh-search-field,.fh-home .fh-ref-dates{width:100%!important;min-width:0!important}
+  .fh-home .fh-search-field>span{display:block!important;margin:0 0 3px 2px!important;font-size:8.5px!important;line-height:1!important;letter-spacing:.08em!important;color:#74839a!important}
+  .fh-home .fh-input,.fh-home .fh-pax-button{width:100%!important;min-width:0!important;height:50px!important;min-height:50px!important;padding:0 12px!important;border:1px solid #d8e2ee!important;border-radius:12px!important;background:#fff!important;box-shadow:none!important}
+  .fh-home .fh-input:focus-within{border-color:#7396c2!important;box-shadow:0 0 0 3px rgba(45,105,180,.09)!important}
+  .fh-home .fh-input>i{width:19px!important;flex:0 0 19px!important;margin-right:8px!important;font-size:15px!important}
+  .fh-home .fh-input input,.fh-home .fh-input select,.fh-home .fh-pax-button{font-size:16px!important}
+
+  /* Swap appears between From/To but consumes almost no height. */
+  .fh-home #fhSwapAirports{align-self:flex-end!important;width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;margin:-12px 14px -12px 0!important;border-radius:50%!important;transform:rotate(90deg)!important;z-index:5!important;background:#fff!important;box-shadow:0 5px 14px rgba(17,42,75,.13)!important}
+  .fh-home #fhSwapAirports:hover,.fh-home #fhSwapAirports:active{transform:rotate(90deg)!important}
+
+  /* Dates remain together on mainstream phones to cut friction/scrolling. */
+  .fh-home .fh-ref-dates .fh-ref-date-pair{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:6px!important;width:100%!important;min-height:0!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important}
+  .fh-home .fh-ref-dates .fh-date-dash{display:none!important}
+  .fh-home .fh-ref-dates .fh-ref-date-pair>label.fh-input{display:flex!important;width:100%!important;height:50px!important;min-height:50px!important;padding:0 10px!important;border-radius:12px!important}
+  .fh-home .fh-ref-dates .fh-ref-date-pair>label.fh-input>i{position:static!important;flex:0 0 17px!important;width:17px!important;margin:0 7px 0 0!important;font-size:14px!important}
+  .fh-home .fh-ref-dates .fh-ref-date-pair>label.fh-input input,.fh-home .fh-ref-dates .fh-ref-date-pair>label.fh-input input.flatpickr-input,.fh-home .fh-ref-dates .fh-ref-date-pair>label.fh-input input.form-control{position:static!important;display:block!important;flex:1 1 auto!important;width:100%!important;height:48px!important;min-width:0!important;padding:0!important;margin:0!important;border:0!important;background:transparent!important;box-shadow:none!important;font-size:15px!important;line-height:48px!important;text-align:left!important;opacity:1!important;visibility:visible!important}
+  .fh-home .fh-ref-dates .fh-return-field:has(#return_date:disabled){display:none!important}
+  .fh-home .fh-ref-date-pair:has(#return_date:disabled){grid-template-columns:1fr!important}
+
+  /* Passenger + cabin stay in one row, search CTA stays full-width. */
+  .fh-home .fh-ref-search-grid-bottom{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:6px!important;width:100%!important;margin-top:6px!important}
+  .fh-home .fh-pax-button{padding:0 8px!important;gap:6px!important;text-align:left!important}
+  .fh-home .fh-pax-button>span,.fh-home .fh-cabin-stack{min-width:0!important}
+  .fh-home .fh-pax-button strong,.fh-home .fh-pax-button small,.fh-home .fh-cabin-stack select,.fh-home .fh-cabin-stack small{overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+  .fh-home .fh-pax-button strong{font-size:13px!important}
+  .fh-home .fh-pax-button small,.fh-home .fh-cabin-stack small{font-size:9px!important}
+  .fh-home .fh-ref-cabin{padding-left:9px!important;padding-right:7px!important}
+  .fh-home .fh-cabin-stack select{font-size:14px!important}
+  .fh-home .fh-search-submit{grid-column:1/-1!important;width:100%!important;min-width:0!important;min-height:50px!important;margin-top:1px!important;border-radius:12px!important;font-size:15px!important;font-weight:800!important;box-shadow:0 10px 22px rgba(205,18,55,.2)!important}
+
+  /* Autocomplete: anchored to active field, compact, viewport-safe. JS sets exact coords. */
+  .ui-autocomplete{position:fixed!important;width:auto!important;max-width:none!important;max-height:min(46dvh,330px)!important;margin:0!important;padding:5px!important;border-radius:14px!important;overflow:auto!important;overscroll-behavior:contain!important;box-shadow:0 18px 50px rgba(7,27,52,.24)!important;z-index:100250!important}
+  .ui-autocomplete .fh-airport-result{grid-template-columns:34px minmax(0,1fr)!important;min-height:52px!important;gap:7px!important;padding:6px!important;border-radius:10px!important}
+  .ui-autocomplete .fh-airport-result-icon{width:32px!important;height:32px!important;border-radius:9px!important;font-size:12px!important}
+  .ui-autocomplete .fh-airport-result-code{font-size:14px!important}
+  .ui-autocomplete .fh-airport-result-city{font-size:11px!important}
+  .ui-autocomplete .fh-airport-result-name{margin-top:2px!important;font-size:9px!important}
+  .ui-autocomplete .fh-airport-result-country{display:none!important}
+
+  /* Flatpickr: compact bottom sheet; no full-screen grey wall. */
+  body> .flatpickr-calendar{position:fixed!important;left:8px!important;right:8px!important;top:auto!important;bottom:max(8px,env(safe-area-inset-bottom))!important;width:auto!important;max-width:430px!important;max-height:min(72dvh,430px)!important;margin:0 auto!important;transform:none!important;border-radius:18px!important;overflow:hidden!important;z-index:100300!important;box-shadow:0 20px 60px rgba(5,20,45,.34)!important}
+  body> .flatpickr-calendar .flatpickr-months{min-height:48px!important}
+  body> .flatpickr-calendar .flatpickr-month{height:48px!important}
+  body> .flatpickr-calendar .flatpickr-current-month{padding-top:11px!important;font-size:15px!important}
+  body> .flatpickr-calendar .flatpickr-weekdays{height:30px!important}
+  body> .flatpickr-calendar .flatpickr-weekday{font-size:11px!important}
+  body> .flatpickr-calendar .flatpickr-days,body> .flatpickr-calendar .dayContainer{width:100%!important;min-width:100%!important;max-width:100%!important}
+  body> .flatpickr-calendar .flatpickr-day{height:40px!important;line-height:40px!important;max-width:none!important;flex-basis:14.2857%!important;font-size:13px!important}
+  body.fh-date-picker-open::before{background:rgba(7,23,43,.36)!important;backdrop-filter:blur(1px)}
+
+  /* Passenger selector as compact safe bottom sheet. */
+  .fh-home .fh-pax-popover,.fh-home .tnb-pax-popover{position:fixed!important;left:8px!important;right:8px!important;top:auto!important;bottom:max(8px,env(safe-area-inset-bottom))!important;width:auto!important;max-width:430px!important;max-height:min(70dvh,500px)!important;margin:0 auto!important;overflow:auto!important;border-radius:18px!important;overscroll-behavior:contain!important;z-index:100220!important}
+
+  /* Trust should reassure without pushing the rest of the page down. */
+  .fh-home .fh-hero-trust{display:flex!important;align-items:center!important;justify-content:center!important;flex-wrap:wrap!important;gap:5px 12px!important;margin-top:10px!important;padding:0 4px!important;font-size:9.5px!important}
+  .fh-home .fh-hero-trust span{display:inline-flex!important;width:auto!important;min-width:0!important;min-height:0!important;padding:0!important;border:0!important;background:transparent!important}
+  .fh-home .fh-hero-trust span:nth-child(n+4){display:none!important}
+  .fh-home .fh-hero-wave{height:18px!important}
+
+  /* Homepage below the fold: horizontal browse rails instead of an endless 1-column page. */
+  .fh-home .fh-section,.fh-home .fh-why,.fh-home .fh-premium{padding-top:28px!important;padding-bottom:28px!important}
+  .fh-home .fh-section-head{gap:8px!important;margin-bottom:14px!important;align-items:flex-end!important}
+  .fh-home .fh-section-head h2,.fh-home .fh-premium-head h2{font-size:23px!important;line-height:1.13!important;letter-spacing:-.025em!important}
+  .fh-home .fh-section-head p,.fh-home .fh-premium-head p{font-size:12px!important;line-height:1.45!important}
+  .fh-home .fh-section-head a{font-size:11px!important;white-space:nowrap!important}
+
+  .fh-home .fh-deal-grid,.fh-home .fh-airport-grid,.fh-home .fh-route-grid,.fh-home .fh-airline-grid,.fh-home .fh-why-grid,.fh-home .fh-guide-grid{display:grid!important;grid-template-columns:none!important;grid-auto-flow:column!important;grid-auto-columns:minmax(268px,82vw)!important;gap:11px!important;width:calc(100% + 12px)!important;margin-right:-12px!important;padding:1px 12px 10px 0!important;overflow-x:auto!important;overflow-y:hidden!important;scroll-snap-type:x proximity!important;scroll-padding-left:0!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-inline:contain!important;scrollbar-width:none!important}
+  .fh-home .fh-deal-grid::-webkit-scrollbar,.fh-home .fh-airport-grid::-webkit-scrollbar,.fh-home .fh-route-grid::-webkit-scrollbar,.fh-home .fh-airline-grid::-webkit-scrollbar,.fh-home .fh-why-grid::-webkit-scrollbar,.fh-home .fh-guide-grid::-webkit-scrollbar{display:none!important}
+  .fh-home .fh-deal-grid>* ,.fh-home .fh-airport-grid>* ,.fh-home .fh-route-grid>* ,.fh-home .fh-airline-grid>* ,.fh-home .fh-why-grid>* ,.fh-home .fh-guide-grid>*{scroll-snap-align:start!important;min-width:0!important}
+  .fh-home .fh-featured-ref .fh-deal-photo,.fh-home .fh-deal-photo{height:165px!important;min-height:165px!important}
+  .fh-home .fh-airport-card{min-height:185px!important}
+  .fh-home .fh-airline-grid{grid-auto-columns:150px!important}
+  .fh-home .fh-airlines-reference .fh-airline-card{min-height:130px!important}
+  .fh-home .fh-why-grid{grid-auto-columns:minmax(245px,75vw)!important}
+  .fh-home .fh-guide-grid{grid-auto-columns:minmax(280px,86vw)!important}
+
+  /* Premium cabin section: two swipeable columns, five rows each, no 10-card vertical marathon. */
+  .fh-home .fh-premium-head{text-align:left!important;margin-bottom:14px!important}
+  .fh-home .fh-premium-head p br,.fh-home .fh-why-reference-head p br{display:none!important}
+  .fh-home .fh-premium-grid{display:grid!important;grid-template-columns:none!important;grid-auto-flow:column!important;grid-auto-columns:minmax(300px,88vw)!important;gap:12px!important;width:calc(100% + 12px)!important;margin-right:-12px!important;padding:0 12px 10px 0!important;overflow-x:auto!important;scroll-snap-type:x proximity!important;-webkit-overflow-scrolling:touch!important;scrollbar-width:none!important}
+  .fh-home .fh-premium-grid::-webkit-scrollbar{display:none!important}
+  .fh-home .fh-premium-column{scroll-snap-align:start!important;min-width:0!important}
+  .fh-home .fh-premium-row{min-height:88px!important;padding:10px!important;gap:8px!important}
+  .fh-home .fh-premium-amenities{display:none!important}
+
+  /* Listing: stable sticky actions, large taps, no content trapped under filters. */
+  .tnb-mobile-search-toggle{min-height:48px!important;border-radius:13px!important}
+  .tnb-mobile-results-actions{position:sticky!important;top:64px!important;z-index:45!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:7px!important;margin:6px -2px 9px!important;padding:6px 2px!important;background:rgba(246,248,251,.96)!important;backdrop-filter:blur(8px)!important}
+  .tnb-mobile-results-actions button{min-height:46px!important;border-radius:12px!important;font-size:12px!important}
+  .tnb-results-layout{display:block!important;min-width:0!important}
+  .tnb-filter-column{display:none!important;width:100%!important;max-width:100%!important;position:relative!important;z-index:20!important}
+  .tnb-results-layout.tnb-mobile-filters-open .tnb-filter-column{display:block!important}
+  .tnb-results-layout .filter-searchBar{max-width:100%!important;overflow:hidden!important;border-radius:14px!important}
+  .tnb-results-layout .filter-searchBar-body{max-height:58dvh!important;overflow-y:auto!important;overscroll-behavior:contain!important;-webkit-overflow-scrolling:touch!important}
+  .tnb-flight-results-column,.result-step,.flights-list-item,.tnb-mobile-flight-summary{width:100%!important;max-width:100%!important;min-width:0!important}
+  .flights-list-item{overflow:hidden!important;border-radius:14px!important}
+  .tnb-mobile-price-wrap .btn,.tnb-mobile-price-wrap button,.tnb-select-btn{min-height:48px!important;touch-action:manipulation!important}
+  .airLines-fullsegment,.tnb-inline-details,.accordion-body{max-width:100%!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch!important}
+
+  /* Checkout: preserve the good V8 flow but remove unnecessary vertical bulk. */
+  body.tnb-checkout-active{overflow-x:hidden!important}
+  .fh-checkout,.fh-checkout>.container,.fh-layout,.fh-main,.fh-side{max-width:100%!important;min-width:0!important}
+  .fh-checkout>.container{padding-left:9px!important;padding-right:9px!important}
+  .fh-layout{display:block!important}
+  .fh-main,.fh-side{width:100%!important}
+  .fh-step-panel,.fh-person-card,.fh-payment-card,.tnb-payment-card,.tnb-billing-card{max-width:100%!important;overflow:hidden!important}
+  .fh-person-card input,.fh-person-card select,.tnb-billing-card input,.tnb-billing-card select,.fh-payment-card input,.fh-payment-card select{width:100%!important;min-width:0!important;min-height:48px!important}
+  .fh-card-preview{max-width:100%!important;transform:scale(.96);transform-origin:top center;margin-bottom:-8px!important}
+  .fh-step-actions .btn,.fh-step-actions button,#submitBtn{min-height:50px!important}
+  .fh-side{position:static!important;margin-top:12px!important}
+  .table-responsive{width:100%!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch!important}
+}
+
+@media (max-width:430px){
+  .fh-reference-actions>.fh-reference-call{padding:0 8px!important}
+  .fh-home .fh-hero-copy p{display:none!important}
+  .fh-home .fh-hero-copy{margin-bottom:8px!important}
+  .fh-home .fh-hero-copy h1{font-size:clamp(26px,7.8vw,32px)!important}
+  .fh-home .fh-search-shell.fh-ref-search-shell{padding:8px!important}
+  .fh-home .fh-trip-tab{font-size:11px!important}
+  .fh-home .fh-ref-search-grid-bottom{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}
+}
+
+@media (max-width:359px){
+  .fh-reference-brand img{width:min(132px,40vw)!important}
+  .fh-reference-actions>.fh-reference-call{width:40px!important;min-width:40px!important;padding:0!important}
+  .fh-reference-actions>.fh-reference-call span{display:none!important}
+  .fh-home .fh-trip-tab{font-size:10px!important}
+  .fh-home .fh-ref-dates .fh-ref-date-pair,.fh-home .fh-ref-search-grid-bottom{grid-template-columns:1fr!important}
+  .fh-home .fh-search-submit{grid-column:auto!important}
+  .fh-home .fh-deal-grid,.fh-home .fh-airport-grid,.fh-home .fh-route-grid,.fh-home .fh-guide-grid{grid-auto-columns:minmax(250px,86vw)!important}
+}
+
+/* Tablet/iPad: avoid the awkward in-between desktop squeeze. */
+@media (min-width:761px) and (max-width:1024px){
+  .fh-reference-header-inner{padding-left:18px!important;padding-right:18px!important}
+  .fh-home .fh-hero{padding-top:38px!important;min-height:auto!important}
+  .fh-home .fh-hero-copy h1{white-space:normal!important;font-size:clamp(42px,5.8vw,58px)!important}
+  .fh-home .fh-search-shell.fh-ref-search-shell{width:calc(100% - 24px)!important;padding:20px!important}
+  .fh-home .fh-ref-search-grid-top{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr)!important}
+  .fh-home .fh-ref-dates{grid-column:1/-1!important}
+  .fh-home .fh-ref-search-grid-bottom{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}
+  .fh-home .fh-search-submit{grid-column:1/-1!important;width:100%!important}
+  .tnb-results-layout{gap:12px!important}
+  .tnb-filter-column,.tnb-flight-results-column{min-width:0!important}
+  .fh-layout{grid-template-columns:minmax(0,1fr)!important}
+  .fh-side{position:static!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

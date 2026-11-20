@@ -1,0 +1,49 @@
+/* fh-critical-css (26 Oct 2026): above-the-fold subset of /assets/css/fareshunt-home-belowfold-v1.css for the homepage. Auto-generated - rebuild if fareshunt-home-belowfold-v1.css changes. */
+.fh-home,
+.fh-home button,
+.fh-home input,
+.fh-home select,
+.fh-home a,
+.fh-home h1,
+.fh-home h2,
+.fh-home p,
+.fh-home span,
+.fh-home small,
+.fh-home strong,
+.fh-home b{
+    font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+}
+.fh-home h1,
+.fh-home h2{
+    font-weight:300!important;
+    letter-spacing:-.035em!important;
+}
+.fh-home p,
+.fh-home small,
+.fh-home span,
+.fh-home strong,
+.fh-home b{
+    font-weight:400!important;
+}
+.fh-home .fh-search-field>span{
+    font-weight:500!important;
+}
+.fh-home .fh-trip-tab,
+.fh-home .fh-trip-tab.active,
+.fh-home .fh-search-submit,
+.fh-home .fh-pax-button strong,
+.fh-home .fh-ref-cabin .fh-cabin-stack select{
+    font-weight:500!important;
+}
+.fh-home button{
+    font-weight:500!important;
+}
+.fh-home .fh-hero-copy h1,
+.fh-home .fh-hero-copy h1 span{
+    font-weight:300!important;
+}
+.fh-home .fh-pill,
+.fh-home .fh-hero-copy p,
+.fh-home .fh-hero-trust{
+    font-weight:400!important;
+}

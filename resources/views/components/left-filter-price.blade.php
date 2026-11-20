@@ -1,0 +1,2 @@
+<input type="text" class="js-range-slider" name="my_range" id="my_range" data-skin="round"
+data-type="double" data-min="{{@$lFilter['FilterCheapestPrice']}}" data-max="{{@$lFilter['FilterHighestPrice']}}" data-grid="false">

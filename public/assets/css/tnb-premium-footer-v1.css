@@ -1,0 +1,38 @@
+
+/* Travel N Breakz — Premium Footer V1 */
+.tnb-premium-footer{background:#07182c!important;color:#aebdd0!important;border:0!important}
+.tnb-premium-footer .tnb-footer-main{padding-top:64px;padding-bottom:30px}
+.tnb-footer-grid{display:grid;grid-template-columns:1.35fr .65fr .75fr 1.25fr;gap:54px;align-items:start}
+.tnb-footer-logo-wrap{display:inline-flex;background:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 16px 40px rgba(0,0,0,.18)}
+.tnb-footer-logo-wrap img{display:block;max-width:180px;max-height:50px;object-fit:contain}
+.tnb-footer-about{max-width:380px;margin:22px 0 24px!important;color:#aebdd0!important;font-size:14px!important;line-height:1.8!important}
+.tnb-footer-socials{display:flex;gap:10px;flex-wrap:wrap}
+.tnb-footer-socials a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#dbe6f3!important;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.055);transition:.2s ease}
+.tnb-footer-socials a:hover{transform:translateY(-3px);background:var(--tnb-cms-primary,#d91f43);border-color:transparent;color:#fff!important}
+.tnb-footer-nav h4,.tnb-footer-support h4{color:#fff!important;font-size:16px!important;font-weight:750!important;margin:7px 0 22px!important;letter-spacing:-.01em}
+.tnb-footer-nav ul{list-style:none!important;padding:0!important;margin:0!important}
+.tnb-footer-nav li{margin:0 0 13px!important}
+.tnb-footer-nav a{color:#b6c5d7!important;font-size:14px!important;text-decoration:none!important;transition:.18s ease}
+.tnb-footer-nav a:hover{color:#fff!important;padding-left:4px}
+.tnb-footer-support{min-width:0}
+.tnb-footer-contact{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;padding:9px 0;text-decoration:none!important;color:inherit!important}
+.tnb-footer-contact-icon{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.09);color:#fff}
+.tnb-footer-contact small{display:block;color:#7187a1!important;font-size:10px!important;font-weight:800!important;text-transform:uppercase;letter-spacing:.08em;margin:0 0 2px}
+.tnb-footer-contact p{margin:0!important;color:#d8e2ee!important;font-size:13px!important;line-height:1.5!important;overflow-wrap:anywhere}
+.tnb-footer-contact:hover p{color:#fff!important}
+.tnb-footer-whatsapp .tnb-footer-contact-icon{color:#54d98c}
+.tnb-footer-payments{margin-top:42px;padding:20px 24px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.035);border-radius:18px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.tnb-footer-eyebrow{display:block;color:#7187a1;font-size:9px;font-weight:850;text-transform:uppercase;letter-spacing:.11em;margin-bottom:3px}
+.tnb-footer-payments strong{color:#fff;font-size:14px;font-weight:700}
+.tnb-footer-payments img{max-width:280px;max-height:38px;object-fit:contain}
+.tnb-footer-legal{margin-top:22px;border-top:1px solid rgba(255,255,255,.085);background:rgba(0,0,0,.08)}
+.tnb-footer-disclaimer{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:24px 0 20px;align-items:start;border-bottom:1px solid rgba(255,255,255,.07)}
+.tnb-footer-disclaimer>i{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.06);color:#8da1b9}
+.tnb-footer-disclaimer p{margin:0!important;max-width:1180px;color:#8799ad!important;font-size:11px!important;line-height:1.75!important}
+.tnb-footer-disclaimer strong{color:#c6d2df;font-weight:750;margin-right:4px}
+.tnb-footer-bottom{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#8194aa;font-size:11px}
+.tnb-footer-secure{display:inline-flex;align-items:center;gap:7px}
+.tnb-footer-secure i{color:#4dd58b}
+@media(max-width:1100px){.tnb-footer-grid{grid-template-columns:1.25fr .75fr .75fr;gap:38px}.tnb-footer-support{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:25px}.tnb-footer-support h4{grid-column:1/-1}}
+@media(max-width:767px){.tnb-premium-footer .tnb-footer-main{padding-top:44px}.tnb-footer-grid{grid-template-columns:1fr 1fr;gap:34px 24px}.tnb-footer-brand,.tnb-footer-support{grid-column:1/-1}.tnb-footer-support{display:block}.tnb-footer-payments{align-items:flex-start;flex-direction:column}.tnb-footer-bottom{padding:18px 0;min-height:0;align-items:flex-start;flex-direction:column}.tnb-footer-disclaimer{padding-top:20px}}
+@media(max-width:460px){.tnb-footer-grid{grid-template-columns:1fr}.tnb-footer-nav{grid-column:1}.tnb-footer-payments img{max-width:100%}}

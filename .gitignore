@@ -1,0 +1,94 @@
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.env.production
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.vscode
+
+
+# Environment files
+/.env*
+!/.env.example
+
+# Laravel runtime and customer data
+/storage/**
+!/storage/
+!/storage/**/
+!/storage/**/.gitignore
+
+# Generated Laravel cache
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+
+# Historical backups
+/crm-image-upload-backup-*/
+/seo-backup-*/
+*.before-*
+*.bak*
+*.backup
+*.old
+
+# Test-generated files
+.phpunit.result.cache
+/.phpunit.cache
+
+# Temporary files
+*.tmp
+*.swp
+.DS_Store
+
+
+# Additional historical backup naming patterns
+*-backup-*
+*.speed-backup-*
+
+# Public debug logs
+/public/mail_images/debug.log
+
+# Accidental root-level artifacts
+/0
+/0,
+/1,
+/1,
+/2],
+/id,
+/id,
+/pnr
+/status
+/issuance_type
+/issuance_date
+/remarks
+/t();
+
+
+# Internal database review
+/SQL_REVIEW_2026_08_24.md
+
+# Confirmed accidental root artifacts
+/,
+/-
+/Premium Badge,type=
+/Premium Cabin Deals],
+/Premium Cabin Deals,type=
+/Premium badge,sort_order=
+
+# Accidental zero-byte root artifacts
+/assign_to
+/text,default=
+/text,label=
+/home.premium.badge,label=
+/home.premium.badge,value=
+/premium,key=
+/destination-new-york-before-seo-20260919.json.sha256

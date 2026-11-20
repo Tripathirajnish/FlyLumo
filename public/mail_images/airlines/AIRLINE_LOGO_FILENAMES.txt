@@ -1,0 +1,38 @@
+FARES HUNT V5.3 — Airline logo files
+
+Create this folder in your Laravel project:
+public/mail_images/airlines/
+
+Then place PNG logos using these exact filenames:
+
+AA  american-airlines.png
+UA  united-airlines.png
+DL  delta-air-lines.png
+F9  frontier-airlines.png
+B6  jetblue.png
+NK  spirit-airlines.png
+WN  southwest-airlines.png
+AS  alaska-airlines.png
+AC  air-canada.png
+BA  british-airways.png
+VS  virgin-atlantic.png
+LH  lufthansa.png
+AF  air-france.png
+KL  klm.png
+LX  swiss.png
+TK  turkish-airlines.png
+EK  emirates.png
+QR  qatar-airways.png
+AI  air-india.png
+EY  etihad-airways.png
+SQ  singapore-airlines.png
+CX  cathay-pacific.png
+QF  qantas.png
+JL  japan-airlines.png
+NH  ana.png
+
+Behavior:
+- If the matching PNG exists, the email displays it.
+- If it does not exist, the template displays the airline code badge instead.
+- The mapping first checks explicit airline-code fields from the API.
+- If those are absent, it extracts the code from flight numbers such as AA-2917, UA57, or F9-1483.
